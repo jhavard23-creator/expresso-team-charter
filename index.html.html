@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Expresso Team Charter for CIS 5040 - Human-Centered Design">
+  <title>Expresso Team | Team Charter</title>
+
+  <style>
+    /* =========================================================
+       EXPRESSO TEAM CHARTER
+       Edit colors here to quickly update the visual theme.
+       ========================================================= */
+    :root {
+      --burgundy: #681D32;
+      --burgundy-dark: #461221;
+      --blush: #F3D7DB;
+      --blush-light: #FAECEE;
+      --ivory: #FFF9EF;
+      --paper: #FFFDF8;
+      --ink: #271B1E;
+      --muted: #705F63;
+      --border: rgba(104, 29, 50, 0.16);
+      --shadow: 0 18px 50px rgba(70, 18, 33, 0.10);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 92px;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 5%, rgba(243,215,219,.72), transparent 28rem),
+        var(--ivory);
+      font-family: "Lato", "Segoe UI", Arial, sans-serif;
+      line-height: 1.65;
+    }
+
+    h1, h2, h3, .brand, .eyebrow, .stat {
+      font-family: "Space Grotesk", "Avenir Next", "Segoe UI", Arial, sans-serif;
+    }
+
+    a { color: inherit; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 249, 239, 0.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      width: min(1120px, calc(100% - 32px));
+      min-height: 70px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--burgundy);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: .88rem;
+      font-weight: 700;
+      color: var(--muted);
+      padding: 8px 10px;
+      border-radius: 999px;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--burgundy);
+      background: var(--blush);
+      outline: none;
+    }
+
+    main {
+      width: min(1120px, calc(100% - 32px));
+      margin: auto;
+    }
+
+    .hero {
+      min-height: 590px;
+      display: grid;
+      grid-template-columns: 1.35fr .65fr;
+      align-items: center;
+      gap: 48px;
+      padding: 76px 0 64px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 18px;
+      color: var(--burgundy);
+      font-size: .82rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 0;
+      color: var(--burgundy-dark);
+      font-size: clamp(3.5rem, 9vw, 7.4rem);
+      line-height: .92;
+      letter-spacing: -.065em;
+    }
+
+    .hero-copy {
+      max-width: 640px;
+      margin: 28px 0 0;
+      font-size: clamp(1.05rem, 2vw, 1.3rem);
+      color: var(--muted);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .pill {
+      padding: 9px 14px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(255,255,255,.48);
+      color: var(--burgundy-dark);
+      font-size: .9rem;
+      font-weight: 700;
+    }
+
+    .coffee-mark {
+      position: relative;
+      width: min(290px, 72vw);
+      aspect-ratio: 1;
+      margin: auto;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--burgundy);
+      box-shadow: var(--shadow);
+    }
+
+    .coffee-mark::before {
+      content: "";
+      width: 53%;
+      height: 53%;
+      border-radius: 50%;
+      background: var(--blush);
+      box-shadow: inset 0 0 0 18px var(--paper);
+    }
+
+    .coffee-mark::after {
+      content: "E";
+      position: absolute;
+      color: var(--burgundy);
+      font-family: "Space Grotesk", "Segoe UI", sans-serif;
+      font-size: 4rem;
+      font-weight: 800;
+    }
+
+    .section {
+      padding: 36px 0 64px;
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: 170px 1fr;
+      gap: 28px;
+      align-items: baseline;
+      margin-bottom: 24px;
+    }
+
+    .section-number {
+      color: var(--burgundy);
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      font-size: .78rem;
+    }
+
+    h2 {
+      margin: 0;
+      color: var(--burgundy-dark);
+      font-size: clamp(2rem, 5vw, 3.6rem);
+      line-height: 1;
+      letter-spacing: -.045em;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      padding: 28px;
+      background: rgba(255, 253, 248, .88);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: 0 8px 28px rgba(70,18,33,.045);
+    }
+
+    .card.wide { grid-column: 1 / -1; }
+
+    h3 {
+      margin: 0 0 10px;
+      color: var(--burgundy);
+      font-size: 1rem;
+      letter-spacing: -.015em;
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 1.03rem;
+    }
+
+    .member-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .member {
+      min-height: 150px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: var(--burgundy);
+      color: var(--ivory);
+      border-radius: 22px;
+    }
+
+    .member strong {
+      font-family: "Space Grotesk", "Segoe UI", sans-serif;
+      font-size: 1.35rem;
+    }
+
+    .member span {
+      font-size: .9rem;
+      color: var(--blush);
+      overflow-wrap: anywhere;
+    }
+
+    .accent {
+      background: var(--blush);
+      border-color: transparent;
+    }
+
+    .closing {
+      margin: 22px 0 76px;
+      padding: clamp(34px, 7vw, 70px);
+      color: var(--ivory);
+      background: var(--burgundy-dark);
+      border-radius: 32px;
+    }
+
+    .closing .eyebrow { color: var(--blush); }
+    .closing h2 { color: var(--ivory); }
+    .closing .grid { margin-top: 28px; }
+    .closing .card {
+      background: rgba(255,255,255,.07);
+      border-color: rgba(255,255,255,.14);
+      box-shadow: none;
+    }
+    .closing h3 { color: var(--blush); }
+    .closing p { color: var(--ivory); }
+
+    footer {
+      padding: 0 0 42px;
+      text-align: center;
+      color: var(--muted);
+      font-size: .85rem;
+    }
+
+    @media (max-width: 820px) {
+      .nav { padding: 12px 0; align-items: flex-start; }
+      .nav-links { display: none; }
+      .hero {
+        min-height: auto;
+        grid-template-columns: 1fr;
+        padding-top: 58px;
+      }
+      .coffee-mark { width: 190px; margin: 12px 0 0; }
+      .section-heading { grid-template-columns: 1fr; gap: 6px; }
+      .member-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 560px) {
+      main, .nav { width: min(100% - 24px, 1120px); }
+      .grid, .member-grid { grid-template-columns: 1fr; }
+      .card.wide { grid-column: auto; }
+      .hero { gap: 34px; }
+      .coffee-mark { width: 150px; }
+      .coffee-mark::after { font-size: 3rem; }
+      .card { padding: 22px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="#top">Expresso Team</a>
+      <div class="nav-links">
+        <a href="#identity">Team</a>
+        <a href="#purpose">Purpose</a>
+        <a href="#communication">Communication</a>
+        <a href="#agreements">Agreements</a>
+        <a href="#conflict">Conflict</a>
+        <a href="#success">Success</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="page-title">
+      <div>
+        <span class="eyebrow">CIS 5040 · Human-Centered Design</span>
+        <h1 id="page-title">Team<br>Charter.</h1>
+        <p class="hero-copy">
+          Expresso Team — a clear record of our shared purpose, communication,
+          working agreements, conflict resolution, and measures of success.
+        </p>
+        <div class="hero-meta">
+          <span class="pill">September 3, 2026</span>
+          <span class="pill">Coffee Shop Project</span>
+        </div>
+      </div>
+      <div class="coffee-mark" aria-hidden="true"></div>
+    </section>
+
+    <section class="section" id="identity">
+      <div class="section-heading">
+        <span class="section-number">01 · Team Identity</span>
+        <h2>Meet the team.</h2>
+      </div>
+      <div class="member-grid">
+        <article class="member"><strong>Claire</strong></article>
+        <article class="member"><strong>John</strong></article>
+        <article class="member"><strong>Kevin</strong></article>
+        <article class="member"><strong>Karen</strong></article>
+      </div>
+    </section>
+
+    <section class="section" id="purpose">
+      <div class="section-heading">
+        <span class="section-number">02 · Shared Purpose</span>
+        <h2>What we are working toward.</h2>
+      </div>
+      <div class="grid">
+        <article class="card accent">
+          <h3>Goal</h3>
+          <p>We are still thinking about it. website, advertising, marketing ideas, inventory management.</p>
+        </article>
+        <article class="card">
+          <h3>What success looks like</h3>
+          <p>good team work in communication and come up with a good outcome. Providing good service to the coffee shop. Getting experience for our future jobs from this project.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="communication">
+      <div class="section-heading">
+        <span class="section-number">03 · Communication</span>
+        <h2>How we stay connected.</h2>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <h3>Platform</h3>
+          <p>Microsoft Teams and Messages, Discord.</p>
+        </article>
+        <article class="card">
+          <h3>Response time</h3>
+          <p>10 hours max.</p>
+        </article>
+        <article class="card wide accent">
+          <h3>Meetings</h3>
+          <p>every Thursday before class.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="decision-making">
+      <div class="section-heading">
+        <span class="section-number">04 · Decision-Making</span>
+        <h2>How we move forward.</h2>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <h3>How decisions are made</h3>
+          <p>all of us together will agree.</p>
+        </article>
+        <article class="card">
+          <h3>How disagreements are handled</h3>
+          <p>we will communicate and talk to each other.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="agreements">
+      <div class="section-heading">
+        <span class="section-number">05 · Working Agreements</span>
+        <h2>How we work together.</h2>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <h3>Participation</h3>
+          <p>everyone taking turns to participate.</p>
+        </article>
+        <article class="card">
+          <h3>Accountability</h3>
+          <p>we will have meetings to evaluate our progress.</p>
+        </article>
+        <article class="card wide accent">
+          <h3>Deadlines</h3>
+          <p>we would schedule them write them down.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="conflict">
+      <div class="section-heading">
+        <span class="section-number">06 · Conflict Resolution</span>
+        <h2>How we handle concerns.</h2>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <h3>Unresponsive teammate</h3>
+          <p>we will talk to him first then talk to professor.</p>
+        </article>
+        <article class="card">
+          <h3>How concerns are raised</h3>
+          <p>We Will send a message asking for help.</p>
+        </article>
+        <article class="card wide">
+          <h3>When to involve the instructor</h3>
+          <p>once a teammate refuses to cooperate.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="closing" id="success">
+      <span class="eyebrow">07 · Success Metrics</span>
+      <h2>What success means to us.</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>What will make us proud</h3>
+          <p>we will be proud once we get a good grace and we succeed with our project.</p>
+        </article>
+        <article class="card">
+          <h3>Behaviors that define success</h3>
+          <p>Everyone is proud because they did their best.</p>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      Expresso Team · CIS 5040 - Human-Centered Design · Team Charter
+    </footer>
+  </main>
+</body>
+</html>
